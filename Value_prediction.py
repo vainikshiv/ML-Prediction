@@ -36,8 +36,6 @@ regressor.fit(X_train, y_train)
 
 # print(regressor.coef_)
 
-y_pred = regressor.predict(X_test)
-
 act = regressor.predict([[new_row['Alpha'], new_row['Bravo'], new_row['Charlie'], new_row['Delta'],new_row['Echo'], new_row['Foxtrot'], new_row['Golf'], new_row['Hotel'], new_row['India'],new_row['Juliett']]])
 print('-'*80,'\n Actual value: ', act[0])
 new_row['Actual'] = act[0]
@@ -45,12 +43,3 @@ dataset = dataset.append(new_row, ignore_index=True)
 
 # Create new csv file and append new data to it
 dataset.to_csv('raw_output.csv', index=False)
-
-# df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
-# df1 = df.head(25)
-# print(df1)
-
-# df1.plot(kind='bar',figsize=(6,4))
-# plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
-# plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
-# plt.show()
