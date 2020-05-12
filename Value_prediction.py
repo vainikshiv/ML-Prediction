@@ -14,6 +14,9 @@ if col in ['Y','y']:
     additional = pd.DataFrame({ name: l })
     new = pd.concat([dataset, additional], axis=1)
     new[name].fillna(0, inplace=True)
+    data_list = list(new.columns.values)
+    data_list = data_list[:-2]+[data_list[-1],data_list[-2]]
+    new = new.reindex(columns=data_list)
     os.remove('dummydata.csv')
     new.to_csv('dummydata.csv', index=False)
 
